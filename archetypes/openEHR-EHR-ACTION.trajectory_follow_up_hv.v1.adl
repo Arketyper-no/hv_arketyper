@@ -47,7 +47,7 @@ description
 		["original_namespace"] = <"no.nasjonalikt">
 		["original_publisher"] = <"Nasjonal IKT">
 		["custodian_namespace"] = <"no.nasjonalikt">
-		["MD5-CAM-1.0.1"] = <"17680f398222f45c726d42896ab41fa2">
+		["MD5-CAM-1.0.1"] = <"0f928881a340c0a3fe12cff33e760d93">
 		["build_uid"] = <"e55db78e-da41-47b7-89cb-3acfefe5588b">
 		["revision"] = <"0.0.1-alpha">
 	>
@@ -187,7 +187,17 @@ definition
 		description matches {
 			ITEM_TREE[at0001] matches {    -- Tree
 				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0019] occurrences matches {0..1} matches {    -- Trajectory
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
 					ELEMENT[at0002] occurrences matches {0..1} matches {    -- Event
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0020] occurrences matches {0..1} matches {    -- Reason
 						value matches {
 							DV_TEXT matches {*}
 						}
@@ -300,6 +310,15 @@ ontology
 					text = <"Details">
 					description = <"Details about the current action. ">
 				>
+				["at0019"] = <
+					text = <"Trajectory">
+					description = <"The trajectory being followed up.">
+				>
+				["at0020"] = <
+					text = <"Reason">
+					description = <"Reason that the pathway step for the trajectory was carried out.">
+					comment = <"For example: 'Postponed - Patient not available', 'Cancelled - Adverse reaction'. Note: This is not the reason for the trajectory, but rather the specific reason that a care step was carried out, and will often be used to document some variance from the original order.trajectory instruction.">
+				>
 			>
 		>
 		["nb"] = <
@@ -371,6 +390,15 @@ ontology
 				["at0018"] = <
 					text = <"Detaljer">
 					description = <"Detaljer om nåværende oppgaven">
+				>
+				["at0019"] = <
+					text = <"Forløp">
+					description = <"Angir forløpet som følges opp.">
+				>
+				["at0020"] = <
+					text = <"Årsak">
+					description = <"Årsak til at det aktuelle prosesstrinnet ble utført.">
+					comment = <"For eksempel: Dersom administrering er utsatt pga pasienten ikke er tilgjengelig, velges prosesstrinnet \"Utsatt administrering\", og \"Pasienten er ikke tilgjengelig ved administreringstidspunktet\" dokumenteres i dette elementet. NB: Dette er ikke årsaken til forløpet, men de spesifikke årsakene til at det aktuelle prosesstrinnet ble utført. Dette vil som regel brukes for å dokumentere varians fra den opprinnelige ordineringen.">
 				>
 			>
 		>
