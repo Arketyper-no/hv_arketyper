@@ -1,2 +1,2 @@
-# hv_draft_arketyper
-Repo for å synkronisere bruk av draft-arketyper i Helse Vest.
+# hv_arketyper
+Repo for å synkronisere bruk av arketyper i Helse Vest-utviklet funksjonalitet.
