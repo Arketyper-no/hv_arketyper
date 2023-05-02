@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>3f81d839-55f2-47f2-bced-9eee566ae8e1</id>
+    <name>Allergen_immunterapi_legemiddelliste.v1.0.0</name>
+    <description>
+        <original_author>
+            <item>
+                <key>name</key>
+                <value>Silje Ljosland Bakke</value>
+            </item>
+            <item>
+                <key>organisation</key>
+                <value>Helse Vest IKT AS</value>
+            </item>
+            <item>
+                <key>email</key>
+                <value>silje.ljosland.bakke@helse-vest-ikt.no</value>
+            </item>
+            <item>
+                <key>date</key>
+                <value>2021-12-06</value>
+            </item>
+        </original_author>
+        <lifecycle_state>published</lifecycle_state>
+        <details/>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>sem_ver</key>
+                <value>0.5.0</value>
+            </item>
+            <item>
+                <key>build_uid</key>
+                <value/>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>20608d9f3c4bd835d7038d6e022c7be2</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>9847ABD389190775E0A802EBA8ACD5FA</value>
+            </item>
+            <item>
+                <key>original_language</key>
+                <value>ISO_639-1::nb</value>
+            </item>
+        </other_details>
+    </description>
+    <definition
+        archetype_id="openEHR-EHR-COMPOSITION.medication_list.v1"
+        concept_name="Legemiddelliste"
+        name="Allergen immunterapi legemiddelliste"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:COMPOSITION">
+        <Content
+            archetype_id="openEHR-EHR-OBSERVATION.medication_statement_hv.v1"
+            path="/content" xsi:type="tem:OBSERVATION">
+            <Rule max="1" min="1" path="/data[at0001]/events[at0002]"/>
+            <Rule min="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]"/>
+            <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0030]"/>
+            <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0018]">
+                <constraint xsi:type="tem:multipleConstraint">
+                    <includedTypes>Text</includedTypes>
+                    <includedTypes>URI</includedTypes>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0019]"/>
+            <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0020]"/>
+            <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0021]"/>
+            <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0023]"/>
+            <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0031]"/>
+            <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0024]"/>
+            <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0025]"/>
+            <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0026]"/>
+            <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0027]"/>
+            <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0028]"/>
+            <Rule name="Kommentar" path="/data[at0001]/events[at0002]/data[at0003]/items[at0029]"/>
+        </Content>
+    </definition>
+    <integrity_checks
+        archetype_id="openEHR-EHR-COMPOSITION.medication_list.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">9847ABD389190775E0A802EBA8ACD5FA</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.medication_statement_hv.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">f0f925bebe81955be7628a81d66142d2</digest>
+    </integrity_checks>
+</template>
