@@ -1,0 +1,106 @@
+archetype (adl_version=1.4; uid=8396a199-44ef-4fe0-b59b-13b2d34b9fb7)
+	openEHR-EHR-CLUSTER.selvrapportert_vekt_hoyde_med_kmi_hv.v1
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::nb]>
+
+description
+	original_author = <
+		["date"] = <"2022-10-06">
+		["name"] = <"Marit Alice Venheim">
+		["organisation"] = <"Helse Vest IKT">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			purpose = <"For å registrere spesifikk selvrapportert vekt, hoyde med KMI hos et individ som en del av et egenerklæringsskjema.">
+			use = <"Brukes for å registrere spesifikk selvrapportert vekt, hoyde med KMI hos et individ som en del av et egenerklæringsskjema.">
+			misuse = <"Brukes ikke andre steder enn i selvrapportert egen- eller helseerklæringsskjema.
+For ordinær registrering av høyde, vekt og KMI bruk egne arketyper til dette formålet.">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"26015a8b190480ef07fdb5e6a058dca3">
+		["build_uid"] = <"b231e925-016f-3283-a466-0e55422f2411">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- selvrapportert_vekt_hoyde_med_kmi_hv
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Kroppsvekt
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::124]>
+						list = <
+							["1"] = <
+								units = <"kg">
+								magnitude = <|0.0..1000.0|>
+								precision = <|0|>
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Høyde/lengde
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::122]>
+						list = <
+							["1"] = <
+								units = <"cm">
+								magnitude = <|0.0..1000.0|>
+								precision = <|0|>
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {    -- Kroppsmasseindeks
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::337]>
+						list = <
+							["1"] = <
+								units = <"m2/kg">
+								magnitude = <|0.0..1000.0|>
+								precision = <|2|>
+							>
+						>
+					>
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["nb"] = <
+			items = <
+				["at0000"] = <
+					text = <"selvrapportert_vekt_hoyde_med_kmi_hv">
+					description = <"Spesifikk selvrapportert vekt, hoyde med KMI hos et individ som en del av et egenerklæringsskjema.">
+				>
+				["at0001"] = <
+					text = <"Kroppsvekt">
+					description = <"Et individs totale kroppsmasse.">
+				>
+				["at0002"] = <
+					text = <"Høyde/lengde">
+					description = <"Høyde/lengde fra isse til fotsåle.">
+				>
+				["at0003"] = <
+					text = <"Kroppsmasseindeks">
+					description = <"Indeks som beskriver forholdet mellom vekt og høyde.">
+				>
+			>
+		>
+	>

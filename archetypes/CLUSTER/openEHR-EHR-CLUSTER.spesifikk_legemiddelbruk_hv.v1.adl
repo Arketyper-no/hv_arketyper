@@ -1,0 +1,128 @@
+archetype (adl_version=1.4; uid=a44be8ce-acb7-4020-8843-feff963a9c49)
+	openEHR-EHR-CLUSTER.spesifikk_legemiddelbruk_hv.v1
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::nb]>
+
+description
+	original_author = <
+		["date"] = <"2022-09-27">
+		["name"] = <"Marit Alice Venheim">
+		["organisation"] = <"Helse Vest IKT">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			purpose = <"For å registrere informasjon om spesifikk selvrapportert legemiddelhistorikk hos et individ som en del av egenerklæringsskjema.">
+			use = <"Brukes for å registrere informasjon om spesifikk selvrapportert legemiddelhistorikk hos et individ som en del av egenerklæringsskjema.">
+			misuse = <"Brukes ikke for å registrere ordinasjon eller administrering av legemidler.">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"e5f791de5524b1a2b37d444069f1c8ea">
+		["build_uid"] = <"8c8def8b-70cf-3e16-a49c-c438ffd4a554">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- spesifikk_legemiddelbruk_hv
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..*} matches {    -- Bruker du medisiner?
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002,    -- Ja
+							at0003]    -- Nei
+						}
+					}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {    -- Bruker blodfortynntende legemidler
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0010] occurrences matches {0..*} matches {    -- Vennligst spesifiser hvilke blodfortynnende legemidler du bruker, dosering og hvorfor du bruker disse
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0011] occurrences matches {0..1} matches {    -- Bruker andre legemidler. Gjelder også prevensjonsmidler og reseptfrie medisiner
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0012] occurrences matches {0..1} matches {    -- Vennligst spesifiser hvilke legemidler du bruker, dosering og hvorfor du bruker disse (For eksempel Paracet 500mg tablett, 2 tabletter 3 ganger om dagen, smerter i fot)
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0006] occurrences matches {0..*} matches {    -- Bruker kosttilskudd eller alternativ medisin
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0013] occurrences matches {0..1} matches {    -- Vennligst spesifiser hva du bruker av kosttilskudd eller alternativ medisin og hvorfor
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["nb"] = <
+			items = <
+				["at0000"] = <
+					text = <"spesifikk_legemiddelbruk_hv">
+					description = <"Spesifikk selvrapportert legemiddelhistorikk hos et individ som en del av egenerklæringsskjema.">
+				>
+				["at0001"] = <
+					text = <"Bruker du medisiner?">
+					description = <"Bruk av legemidler. Gjelder også prevensjonsmidler, reseptfrie medisiner, alternative medisiner og naturmedisiner.">
+				>
+				["at0002"] = <
+					text = <"Ja">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Nei">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Bruker blodfortynntende legemidler">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Bruker kosttilskudd eller alternativ medisin">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Vennligst spesifiser hvilke blodfortynnende legemidler du bruker, dosering og hvorfor du bruker disse">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Bruker andre legemidler. Gjelder også prevensjonsmidler og reseptfrie medisiner">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Vennligst spesifiser hvilke legemidler du bruker, dosering og hvorfor du bruker disse (For eksempel Paracet 500mg tablett, 2 tabletter 3 ganger om dagen, smerter i fot)">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"Vennligst spesifiser hva du bruker av kosttilskudd eller alternativ medisin og hvorfor">
+					description = <"">
+				>
+			>
+		>
+	>

@@ -1,0 +1,239 @@
+archetype (adl_version=1.4; uid=1d690d64-7f90-465b-96c0-88f4932adb58)
+	openEHR-EHR-CLUSTER.brudd_historikk_btm_hv.v1
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::nb]>
+
+description
+	original_author = <
+		["date"] = <"2022-09-30">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			purpose = <"For å registrere selvrapporterte data på spesifikke spørsmål angående tidligere brudd eller brist hos et individ som skal til beintetthetsmåling. ">
+			use = <"Brukes for å registrere selvrapporterte data på spesifikke spørsmål angående tidligere brudd eller brist hos et individ som skal til beintetthetsmåling.">
+			misuse = <"Brukes ikke for å registrere generell brudd eller brist historikk hos et individ.">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"a98064f1f6a8e45734ae137a26023cdd">
+		["build_uid"] = <"8e4fbd2e-8e56-3c7e-a7d6-db5d2c13d4fc">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- brudd_historikk_btm_hv
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Har du hatt brudd eller brist etter fylte 20 år?
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002,    -- Ja
+							at0003,    -- Nei
+							at0004]    -- Usikker
+						}
+					}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {    -- Kompresjonsbrudd i rygg (sammenfall i  ryggen)
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0006] occurrences matches {0..1} matches {    -- Omtrent alder ved kompresjonsbrudd i rygg (sammenfall i  ryggen)
+				value matches {
+					DV_DURATION matches {
+						value matches {PY/|>=P20Y|}
+					}
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {    -- Hoftebrudd eller lårhalsbrudd
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..1} matches {    -- Omtrent alder ved hoftebrudd eller lårhalsbrudd
+				value matches {
+					DV_DURATION matches {
+						value matches {PY/|>=P20Y|}
+					}
+				}
+			}
+			ELEMENT[at0009] occurrences matches {0..1} matches {    -- Underarmsbrudd eller håndleddsbrudd
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0010] occurrences matches {0..1} matches {    -- Omtrent alder ved underarmsbrudd eller håndleddsbrudd
+				value matches {
+					DV_DURATION matches {
+						value matches {PY/|>=P20Y|}
+					}
+				}
+			}
+			ELEMENT[at0011] occurrences matches {0..1} matches {    -- Overarmsbrudd eller skulderbrudd
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0012] occurrences matches {0..1} matches {    -- Omtrent alder ved overarmsbrudd eller skulderbrudd
+				value matches {
+					DV_DURATION matches {
+						value matches {PY/|>=P20Y|}
+					}
+				}
+			}
+			ELEMENT[at0013] occurrences matches {0..1} matches {    -- Annet (ikke hode, fingre eller tær)
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0014] occurrences matches {0..1} matches {    -- Når skjedde det (omtrent alder)?
+				value matches {
+					DV_DURATION matches {
+						value matches {PY/|>=P20Y|}
+					}
+				}
+			}
+			ELEMENT[at0015] occurrences matches {0..1} matches {    -- Hvor var bruddet?
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			CLUSTER[at0027] occurrences matches {0..1} matches {    -- Har noen av dine biologiske foreldre hatt
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0022] occurrences matches {0..1} matches {    -- Osteoporose (beinskjørhet)
+						value matches {
+							DV_BOOLEAN matches {*}
+						}
+					}
+					ELEMENT[at0023] occurrences matches {0..1} matches {    -- Underarmsbrudd eller håndleddsbrudd
+						value matches {
+							DV_BOOLEAN matches {*}
+						}
+					}
+					ELEMENT[at0024] occurrences matches {0..1} matches {    -- Overarmsbrudd eller skulderbrudd
+						value matches {
+							DV_BOOLEAN matches {*}
+						}
+					}
+					ELEMENT[at0025] occurrences matches {0..1} matches {    -- Hoftebrudd eller lårhalsbrudd
+						value matches {
+							DV_BOOLEAN matches {*}
+						}
+					}
+					ELEMENT[at0026] occurrences matches {0..1} matches {    -- Kompresjonsbrudd i rygg (sammenfall i rygg)
+						value matches {
+							DV_BOOLEAN matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["nb"] = <
+			items = <
+				["at0000"] = <
+					text = <"brudd_historikk_btm_hv">
+					description = <"Spesifikk selvrapportert brudd historikk hos et individ som en del av egenerklæringsskjema for beintetthetsmåling.">
+				>
+				["at0001"] = <
+					text = <"Har du hatt brudd eller brist etter fylte 20 år?">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Ja">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Nei">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Usikker">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Kompresjonsbrudd i rygg (sammenfall i  ryggen)">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Omtrent alder ved kompresjonsbrudd i rygg (sammenfall i  ryggen)">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Hoftebrudd eller lårhalsbrudd">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Omtrent alder ved hoftebrudd eller lårhalsbrudd">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Underarmsbrudd eller håndleddsbrudd">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Omtrent alder ved underarmsbrudd eller håndleddsbrudd">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Overarmsbrudd eller skulderbrudd">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Omtrent alder ved overarmsbrudd eller skulderbrudd">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"Annet (ikke hode, fingre eller tær)">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Når skjedde det (omtrent alder)?">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Hvor var bruddet?">
+					description = <"">
+				>
+				["at0022"] = <
+					text = <"Osteoporose (beinskjørhet)">
+					description = <"">
+				>
+				["at0023"] = <
+					text = <"Underarmsbrudd eller håndleddsbrudd">
+					description = <"">
+				>
+				["at0024"] = <
+					text = <"Overarmsbrudd eller skulderbrudd">
+					description = <"">
+				>
+				["at0025"] = <
+					text = <"Hoftebrudd eller lårhalsbrudd">
+					description = <"">
+				>
+				["at0026"] = <
+					text = <"Kompresjonsbrudd i rygg (sammenfall i rygg)">
+					description = <"">
+				>
+				["at0027"] = <
+					text = <"Har noen av dine biologiske foreldre hatt">
+					description = <"">
+				>
+			>
+		>
+	>

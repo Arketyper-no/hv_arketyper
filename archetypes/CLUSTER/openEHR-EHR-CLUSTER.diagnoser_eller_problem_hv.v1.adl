@@ -1,0 +1,438 @@
+archetype (adl_version=1.4; uid=fe96a11b-1cf2-46f6-aa45-712473c6d675)
+	openEHR-EHR-CLUSTER.diagnoser_eller_problem_hv.v1
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::nb]>
+
+description
+	original_author = <
+		["date"] = <"2022-09-27">
+		["name"] = <"Marit Alice Venheim">
+		["organisation"] = <"Helse Vest IKT">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			purpose = <"For å registrere informasjon om spesifikk selvrapportert diagnose- eller problemhistorikk hos et individ som en del av et egenerklæringsskjema.">
+			use = <"Brukes for å for å registrere informasjon om spesifikk selvrapportert diagnose- eller problemhistorikk hos et individ som en del av et egenerklæringsskjema.">
+			misuse = <"Brukes ikke for å registrere persistente diagnoser på pasienten.">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"71ae79ac0985eaa47205fb74281ae76a">
+		["build_uid"] = <"4d608686-369b-3c6a-b986-6d6fb22bc7d8">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- diagnoser_eller_problem_hv
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Hjerte-karsykdom
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..*} matches {    -- Hvilke(n) sykdom?
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0006] occurrences matches {0..1} matches {    -- Har du mottatt noen behandling for din hjerte-karsykdom?
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0075,    -- Ja
+							at0076]    -- Nei
+						}
+					}
+				}
+			}
+			ELEMENT[at0009] occurrences matches {0..1} matches {    -- Hvilken behandling har du mottatt? Beskriv kort.
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0010] occurrences matches {0..1} matches {    -- Høyt blodtrykk (hypertensjon)
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0013] occurrences matches {0..1} matches {    -- Lungesykdom
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0014] occurrences matches {0..1} matches {    -- Hvilke(n) sykdom?
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0015] occurrences matches {0..1} matches {    -- Mottar du noen behandling for din lungesykdom?
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0077,    -- Ja
+							at0078]    -- Nei
+						}
+					}
+				}
+			}
+			ELEMENT[at0018] occurrences matches {0..1} matches {    -- Vennligst oppgi hvilken behandling du mottar.
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0019] occurrences matches {0..1} matches {    -- Informasjon
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0020] occurrences matches {0..1} matches {    -- Nyresykdom eller leversykdom
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0021] occurrences matches {0..1} matches {    -- Hvilke(n) sykdom?
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0022] occurrences matches {0..1} matches {    -- Nevrologisk sykdom (Sykdom i hjerne eller nervesystem)
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0023] occurrences matches {0..1} matches {    -- Hvilke(n) sykdom?
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0024] occurrences matches {0..1} matches {    -- Diabetes
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0025] occurrences matches {0..1} matches {    -- Hvilken type diabetes har du?
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0026,    -- Kostholdregulert diabetes
+							at0027,    -- Tablettregulert diabetes
+							at0028]    -- Insulinkrevende diabetes
+						}
+					}
+				}
+			}
+			ELEMENT[at0031] occurrences matches {0..1} matches {    -- Stoffskiftesykdom
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0030] occurrences matches {0..1} matches {    -- Hvilke(n) sykdom?
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0029] occurrences matches {0..1} matches {    -- Leddgikt/revmatisk lidelse eller muskel-skjelettsykdom
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0032] occurrences matches {0..1} matches {    -- Hvilke(n) sykdom?
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0033] occurrences matches {0..1} matches {    -- Psykisk sykdom eller psykiske plager
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0034] occurrences matches {0..1} matches {    -- Hvilke(n) sykdom eller plage? Beskriv kort.
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0035] occurrences matches {0..1} matches {    -- Blødersykdom eller sykdom med økt blødningstendens
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0038] occurrences matches {0..1} matches {    -- Hvorfor har du økt blødningstendens? Vennligst spesifiser.
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0039] occurrences matches {0..1} matches {    -- Informasjon
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0040] occurrences matches {0..1} matches {    -- Sykdom i blodårene, tette blodårer (ikke i hjertet), eller andre problemer med blodårene?
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0043] occurrences matches {0..1} matches {    -- Hvilke(n) sykdom eller problem(er)? Vennligst spesifiser.
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0044] occurrences matches {0..1} matches {    -- Søvnapnè (Pustestopp ved søvn)
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0047] occurrences matches {0..1} matches {    -- Bruker du CPAP (Pustemaske)?
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0048,    -- Ja
+							at0049]    -- Nei
+						}
+					}
+				}
+			}
+			ELEMENT[at0050] occurrences matches {0..1} matches {    -- Informasjon
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0051] occurrences matches {0..1} matches {    -- Problemer med mage eller tarm
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0054] occurrences matches {0..1} matches {    -- Hvilke plager eller sykdomme(r)? Vennligst spesifiser.
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0055] occurrences matches {0..1} matches {    -- Har du annen sykdom eller tilstand vi bør vite om?
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0073,    -- Ja
+							at0074]    -- Nei
+						}
+					}
+				}
+			}
+			ELEMENT[at0058] occurrences matches {0..1} matches {    -- Hvilke(n) sykdom eller tilstand? Vennligst spesifiser.
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["nb"] = <
+			items = <
+				["at0000"] = <
+					text = <"diagnoser_eller_problem_hv">
+					description = <"Spesifikk selvrapportert diagnose- eller problemhistorikk hos et individ som en del av et egenerklæringsskjema.">
+				>
+				["at0001"] = <
+					text = <"Hjerte-karsykdom">
+					description = <"For eksempel hjerteinfarkt, angina/hjertekrampe, hjertesvikt, hjerterytmeforstyrrelse, uregelmessig puls">
+				>
+				["at0002"] = <
+					text = <"Hvilke(n) sykdom?">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Har du mottatt noen behandling for din hjerte-karsykdom?">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Hvilken behandling har du mottatt? Beskriv kort.">
+					description = <"Ytterligere beskrivelse av spesifikk bekymring, plage, problem eller diagnose.">
+				>
+				["at0010"] = <
+					text = <"Høyt blodtrykk (hypertensjon)">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"Lungesykdom">
+					description = <"For eksempel KOLS, astma, bronkitt.">
+				>
+				["at0014"] = <
+					text = <"Hvilke(n) sykdom?">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Mottar du noen behandling for din lungesykdom?">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"Vennligst oppgi hvilken behandling du mottar.">
+					description = <"">
+				>
+				["at0019"] = <
+					text = <"Informasjon">
+					description = <"">
+					comment = <"Info tekst: 
+Bruker du medisiner må du føre de opp under “Bruker du medisiner?” over.">
+				>
+				["at0020"] = <
+					text = <"Nyresykdom eller leversykdom">
+					description = <"For eksempel nyresvikt, hepatitt eller leversvikt.">
+				>
+				["at0021"] = <
+					text = <"Hvilke(n) sykdom?">
+					description = <"">
+				>
+				["at0022"] = <
+					text = <"Nevrologisk sykdom (Sykdom i hjerne eller nervesystem)">
+					description = <"For eksempel hjerneslag, hjerneblødning, epilepsi, migrene, Parkinsons, Multippel sklerose.">
+				>
+				["at0023"] = <
+					text = <"Hvilke(n) sykdom?">
+					description = <"">
+				>
+				["at0024"] = <
+					text = <"Diabetes">
+					description = <"">
+				>
+				["at0025"] = <
+					text = <"Hvilken type diabetes har du?">
+					description = <"">
+				>
+				["at0026"] = <
+					text = <"Kostholdregulert diabetes">
+					description = <"">
+				>
+				["at0027"] = <
+					text = <"Tablettregulert diabetes">
+					description = <"">
+				>
+				["at0028"] = <
+					text = <"Insulinkrevende diabetes">
+					description = <"">
+				>
+				["at0029"] = <
+					text = <"Leddgikt/revmatisk lidelse eller muskel-skjelettsykdom">
+					description = <"For eksempel hjerneslag, hjerneblødning, epilepsi, migrene, Parkinsons, Multippel sklerose.">
+				>
+				["at0030"] = <
+					text = <"Hvilke(n) sykdom?">
+					description = <"">
+				>
+				["at0031"] = <
+					text = <"Stoffskiftesykdom">
+					description = <"For eksempel hjerneslag, hjerneblødning, epilepsi, migrene, Parkinsons, Multippel sklerose.">
+				>
+				["at0032"] = <
+					text = <"Hvilke(n) sykdom?">
+					description = <"">
+				>
+				["at0033"] = <
+					text = <"Psykisk sykdom eller psykiske plager">
+					description = <"For eksempel hjerneslag, hjerneblødning, epilepsi, migrene, Parkinsons, Multippel sklerose.">
+				>
+				["at0034"] = <
+					text = <"Hvilke(n) sykdom eller plage? Beskriv kort.">
+					description = <"">
+				>
+				["at0035"] = <
+					text = <"Blødersykdom eller sykdom med økt blødningstendens">
+					description = <"Blødningstendens vil si at du har lettere for å blø enn andre, og blør lengre enn normalt når du skader deg. Blødningstendens påvises gjerne på sykehus eller hos fastlege gjennom en blodprøve.Dersom du går på medisiner som gjør blodet ditt tynnere kan du skrive det i feltet lenger oppe der vi spør om hvilke medisiner du bruker.">
+				>
+				["at0038"] = <
+					text = <"Hvorfor har du økt blødningstendens? Vennligst spesifiser.">
+					description = <"">
+				>
+				["at0039"] = <
+					text = <"Informasjon">
+					description = <"">
+					comment = <"Info tekst:
+Bruker du blodfortynnende legemidler, husk å oppgi hvilke under spørsmålet “Bruker du medisiner?\" lengre oppe i skjemaet.">
+				>
+				["at0040"] = <
+					text = <"Sykdom i blodårene, tette blodårer (ikke i hjertet), eller andre problemer med blodårene?">
+					description = <"">
+				>
+				["at0043"] = <
+					text = <"Hvilke(n) sykdom eller problem(er)? Vennligst spesifiser.">
+					description = <"">
+				>
+				["at0044"] = <
+					text = <"Søvnapnè (Pustestopp ved søvn)">
+					description = <"">
+				>
+				["at0047"] = <
+					text = <"Bruker du CPAP (Pustemaske)?">
+					description = <"">
+				>
+				["at0048"] = <
+					text = <"Ja">
+					description = <"">
+				>
+				["at0049"] = <
+					text = <"Nei">
+					description = <"">
+				>
+				["at0050"] = <
+					text = <"Informasjon">
+					description = <"">
+					comment = <"Info tekst:
+NB: Ta med CPAP til sykehuset når du skal opereres.">
+				>
+				["at0051"] = <
+					text = <"Problemer med mage eller tarm">
+					description = <"For eksempel magesår, gastritt, spiserørsbrokk eller sure oppstøt.">
+				>
+				["at0054"] = <
+					text = <"Hvilke plager eller sykdomme(r)? Vennligst spesifiser.">
+					description = <"">
+				>
+				["at0055"] = <
+					text = <"Har du annen sykdom eller tilstand vi bør vite om?">
+					description = <"">
+				>
+				["at0058"] = <
+					text = <"Hvilke(n) sykdom eller tilstand? Vennligst spesifiser.">
+					description = <"">
+				>
+				["at0073"] = <
+					text = <"Ja">
+					description = <"">
+				>
+				["at0074"] = <
+					text = <"Nei">
+					description = <"">
+				>
+				["at0075"] = <
+					text = <"Ja">
+					description = <"">
+				>
+				["at0076"] = <
+					text = <"Nei">
+					description = <"">
+				>
+				["at0077"] = <
+					text = <"Ja">
+					description = <"">
+				>
+				["at0078"] = <
+					text = <"Nei">
+					description = <"">
+				>
+			>
+		>
+	>

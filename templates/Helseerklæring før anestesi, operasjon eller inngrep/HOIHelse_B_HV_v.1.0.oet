@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>06886659-a826-40fe-906d-130391259e1f</id>
+    <name>HOIHelse_B_HV_v.1.0</name>
+    <description>
+        <original_author>
+            <item>
+                <key>date</key>
+                <value>2022-11-21</value>
+            </item>
+        </original_author>
+        <lifecycle_state>in_development</lifecycle_state>
+        <details/>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>cde3a9ed61e313789e0d4bcde6f87957</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>A63812FE7AE52B5F433DF53EFD8972C9</value>
+            </item>
+            <item>
+                <key>original_language</key>
+                <value>ISO_639-1::nb</value>
+            </item>
+        </other_details>
+    </description>
+    <definition
+        archetype_id="openEHR-EHR-COMPOSITION.self_reported_data.v1"
+        concept_name="Selvrapporterte data" name="HOIHelse_B_HV_v.1.0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:COMPOSITION">
+        <Content archetype_id="openEHR-EHR-EVALUATION.gender.v1" max="1"
+            path="/content" xsi:type="tem:EVALUATION">
+            <Rule max="0" path="/data[at0002]/items[at0022]"/>
+            <Rule max="0" path="/data[at0002]/items[at0019]"/>
+            <Rule max="0" path="/data[at0002]/items[at0025]"/>
+            <Rule max="0" path="/data[at0002]/items[at0001]"/>
+            <Rule max="0" path="/data[at0002]/items[at0020]"/>
+            <Rule max="0" path="/data[at0002]/items[at0014]"/>
+            <Rule max="0" path="/protocol[at0003]/items[at0004]"/>
+        </Content>
+        <Content archetype_id="openEHR-EHR-OBSERVATION.height.v2"
+            max="1" path="/content" xsi:type="tem:OBSERVATION">
+            <Rule max="1" path="/data[at0001]/events[at0002]"/>
+            <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]">
+                <constraint xsi:type="tem:quantityConstraint">
+                    <excludedUnits>[in_i]</excludedUnits>
+                    <unitMagnitude>
+                        <unit>cm</unit>
+                        <maxMagnitude>1000.0</maxMagnitude>
+                        <minMagnitude>0.0</minMagnitude>
+                        <includesMaximum>true</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </unitMagnitude>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0018]"/>
+            <Rule max="0" path="/data[at0001]/events[at0002]/state[at0013]/items[at0014]"/>
+            <Rule max="0" path="/data[at0001]/events[at0002]/state[at0013]/items[at0019]"/>
+            <Rule max="0" path="/data[at0001]/events[at0021]"/>
+            <Rule clone="true" name="Simple" path="/data[at0001]/events[at0021]/data[at0003]"/>
+            <Rule clone="true" name="Tree" path="/data[at0001]/events[at0021]/state[at0013]"/>
+        </Content>
+        <Content archetype_id="openEHR-EHR-OBSERVATION.body_weight.v2"
+            max="1" path="/content" xsi:type="tem:OBSERVATION">
+            <Rule max="1" path="/data[at0002]/events[at0003]"/>
+            <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at0004]">
+                <constraint xsi:type="tem:quantityConstraint">
+                    <excludedUnits>[lb_av]</excludedUnits>
+                    <unitMagnitude>
+                        <unit>g</unit>
+                        <maxMagnitude>1000000.0</maxMagnitude>
+                        <minMagnitude>0.0</minMagnitude>
+                        <includesMaximum>true</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </unitMagnitude>
+                    <unitMagnitude>
+                        <unit>kg</unit>
+                        <maxMagnitude>1000.0</maxMagnitude>
+                        <minMagnitude>0.0</minMagnitude>
+                        <includesMaximum>true</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </unitMagnitude>
+                </constraint>
+            </Rule>
+            <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at0024]"/>
+            <Rule max="0" path="/data[at0002]/events[at0003]/state[at0008]/items[at0009]"/>
+            <Rule max="0" path="/data[at0002]/events[at0003]/state[at0008]/items[at0025]"/>
+            <Rule max="0" path="/data[at0002]/events[at0026]"/>
+            <Rule clone="true" name="Simple" path="/data[at0002]/events[at0026]/data[at0001]"/>
+            <Rule clone="true" name="state structure" path="/data[at0002]/events[at0026]/state[at0008]"/>
+        </Content>
+        <Content
+            archetype_id="openEHR-EHR-EVALUATION.selvrapporterte_data_egenerklaering.v1"
+            max="1" path="/content" xsi:type="tem:EVALUATION">
+            <Rule path="/data[at0003]/items[at0004]">
+                <constraint xsi:type="tem:textConstraint">
+                    <includedValues>Helseerklæring før inngrep eller operasjon_voksen</includedValues>
+                </constraint>
+            </Rule>
+            <Items
+                archetype_id="openEHR-EHR-CLUSTER.selvrapportert_vekt_hoyde_med_kmi_hv.v1"
+                max="0" path="/data[at0003]/items[at0005]" xsi:type="tem:CLUSTER"/>
+            <Items
+                archetype_id="openEHR-EHR-CLUSTER.selvrapportert_smittsom_sykdom_eller_eksponering_hv.v1"
+                max="1" path="/data[at0003]/items[at0005]" xsi:type="tem:CLUSTER">
+                <Rule
+                    default="Ta kontakt med din fastlege så snart som mulig. Du vil da få hjelp til å ta nødvendige prøver og få nødvendig informasjon. Prøvene skal helst være tatt før innleggelse, for å forebygge at multiresistente bakterier blir en del av bakteriefloraen ved sykehuset." path="/items[at0007]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <includedValues>Ta kontakt med din fastlege så snart som mulig. Du vil da få hjelp til å ta nødvendige prøver og få nødvendig informasjon. Prøvene skal helst være tatt før innleggelse, for å forebygge at multiresistente bakterier blir en del av bakteriefloraen ved sykehuset.</includedValues>
+                    </constraint>
+                </Rule>
+            </Items>
+            <Items
+                archetype_id="openEHR-EHR-CLUSTER.kjent_allergi_hv.v1"
+                max="1" path="/data[at0003]/items[at0005]" xsi:type="tem:CLUSTER"/>
+            <Items
+                archetype_id="openEHR-EHR-CLUSTER.selvrapportert_gynekologi_obstetrikk_hv.v1"
+                max="1" path="/data[at0003]/items[at0005]" xsi:type="tem:CLUSTER">
+                <Rule max="0" path="/items[at0007]">
+                    <constraint xsi:type="tem:durationConstraint">
+                        <pattern>PY</pattern>
+                        <includesMaximum>true</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/items[at0012]">
+                    <constraint xsi:type="tem:durationConstraint">
+                        <pattern>PY</pattern>
+                        <includesMaximum>true</includesMaximum>
+                        <includesMinimum>true</includesMinimum>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/items[at0030]"/>
+                <Rule max="0" path="/items[at0013]"/>
+                <Rule max="0" path="/items[at0017]"/>
+                <Rule
+                    default="Husk å ta med Helsekort for gravide dersom du har dette." path="/items[at0041]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <includedValues>Husk å ta med Helsekort for gravide dersom du har dette.</includedValues>
+                    </constraint>
+                </Rule>
+            </Items>
+            <Items
+                archetype_id="openEHR-EHR-CLUSTER.selvrapportert_omsorg_hv.v1"
+                max="1" path="/data[at0003]/items[at0005]" xsi:type="tem:CLUSTER"/>
+            <Items
+                archetype_id="openEHR-EHR-CLUSTER.selvrapportert_fysisk_kapasitet_og_livsstil_aoi_hv.v1"
+                max="1" path="/data[at0003]/items[at0005]" xsi:type="tem:CLUSTER">
+                <Rule max="0" path="/items[at0014]"/>
+            </Items>
+            <Items
+                archetype_id="openEHR-EHR-CLUSTER.spesifikk_legemiddelbruk_hv.v1"
+                max="1" path="/data[at0003]/items[at0005]" xsi:type="tem:CLUSTER"/>
+            <Items
+                archetype_id="openEHR-EHR-CLUSTER.diagnoser_eller_problem_hv.v1"
+                max="1" path="/data[at0003]/items[at0005]" xsi:type="tem:CLUSTER">
+                <Rule
+                    default="Bruker du medisiner må du føre de opp under “Bruker du medisiner?” over." path="/items[at0019]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <includedValues>Bruker du medisiner må du føre de opp under “Bruker du medisiner?” over.</includedValues>
+                    </constraint>
+                </Rule>
+                <Rule
+                    default="NB: Ta med CPAP til sykehuset når du skal opereres." path="/items[at0050]">
+                    <constraint xsi:type="tem:textConstraint">
+                        <includedValues>NB: Ta med CPAP til sykehuset når du skal opereres.</includedValues>
+                    </constraint>
+                </Rule>
+            </Items>
+            <Items
+                archetype_id="openEHR-EHR-CLUSTER.selvrapportert_tidligere_anestesi_hv.v1"
+                max="1" path="/data[at0003]/items[at0005]" xsi:type="tem:CLUSTER"/>
+            <Items
+                archetype_id="openEHR-EHR-CLUSTER.selvrapportert_yrkesopplysninger_hv.v1"
+                max="1" path="/data[at0003]/items[at0005]" xsi:type="tem:CLUSTER"/>
+            <Items
+                archetype_id="openEHR-EHR-CLUSTER.selvrapportert_eventuelle_kommentarer_hv.v1"
+                max="1" path="/data[at0003]/items[at0005]" xsi:type="tem:CLUSTER"/>
+        </Content>
+        <Context>
+            <Items
+                archetype_id="openEHR-EHR-CLUSTER.fylle_ut_pa_vegne_av_helsenorge_hv.v1"
+                max="1"
+                path="/context[at0002]/other_context[at0003]/items[at0006]" xsi:type="tem:CLUSTER"/>
+            <Items archetype_id="openEHR-EHR-CLUSTER.person.v1" max="1"
+                path="/context[at0002]/other_context[at0003]/items[at0006]" xsi:type="tem:CLUSTER">
+                <Rule
+                    name="Navn til den som har fylt ut skjema på vegne av innbygger" path="/items[at0001]"/>
+                <Rule max="0" path="/items[at0011]"/>
+                <Rule max="1"
+                    name="Fødselsnummer til den som har fylt ut skjema på vegne av innbygger" path="/items[at0003]">
+                    <constraint xsi:type="tem:multipleConstraint">
+                        <includedTypes>Text</includedTypes>
+                    </constraint>
+                </Rule>
+                <Rule max="0" path="/items[at0004]"/>
+                <Rule max="0" path="/items[at0010]"/>
+            </Items>
+        </Context>
+    </definition>
+    <integrity_checks
+        archetype_id="openEHR-EHR-COMPOSITION.self_reported_data.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">A63812FE7AE52B5F433DF53EFD8972C9</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.fylle_ut_pa_vegne_av_helsenorge_hv.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">d39122a18c365e62fd6ac9b7a6aac990</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.person.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">1A4C242F172E23354BB0EFD96C5E06E7</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-EVALUATION.gender.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">87DE134B07D1424AFEA02108C51EB661</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.height.v2"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">2E014019AFE6E595C9F391FD4148AF84</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.body_weight.v2"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">35F2C79623D501CBCB9DDF2AABEB22C2</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.selvrapporterte_data_egenerklaering.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">cd035efeb368bb13c0f7cf71e06b11f3</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.selvrapportert_vekt_hoyde_med_kmi_hv.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">26015a8b190480ef07fdb5e6a058dca3</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.selvrapportert_smittsom_sykdom_eller_eksponering_hv.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">fd0a26b4740d44e7fc4230292ffe660b</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.kjent_allergi_hv.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">3d6822a490cb826658826516fde17743</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.selvrapportert_gynekologi_obstetrikk_hv.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">18a5142a4c675ad0419e97ba73f3b859</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.selvrapportert_omsorg_hv.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">4df5fa3c972d8deff3ed6f4dbb88da6d</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.selvrapportert_fysisk_kapasitet_og_livsstil_aoi_hv.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">11bd408c9eeba7394294208cd8a109c1</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.spesifikk_legemiddelbruk_hv.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">e5f791de5524b1a2b37d444069f1c8ea</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.diagnoser_eller_problem_hv.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">71ae79ac0985eaa47205fb74281ae76a</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.selvrapportert_tidligere_anestesi_hv.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">a793d21ecf4c531d642c64a05a7c215f</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.selvrapportert_yrkesopplysninger_hv.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">b787bec7313585bfe4405642f20ca162</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.selvrapportert_eventuelle_kommentarer_hv.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">a9d84be2965b2fc443a04388aae822de</digest>
+    </integrity_checks>
+</template>

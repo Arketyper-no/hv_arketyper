@@ -1,0 +1,83 @@
+archetype (adl_version=1.4; uid=ca4fcf5d-f91f-4555-9a71-826d9bff2088)
+	openEHR-EHR-CLUSTER.selvrapportert_yrkesopplysninger_hv.v1
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::nb]>
+
+description
+	original_author = <
+		["date"] = <"2022-10-24">
+		["name"] = <"Marit Alice Venheim">
+		["organisation"] = <"Helse Vest IKT">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			purpose = <"For å registrere selvrapportert informasjon om yrkesopplysninger fra et individ som en del av et egenerklæringsskjema.">
+			use = <"Brukes for å registrere selvrapportert informasjon om yrkesopplysninger fra et individ som en del av et egenerklæringsskjema.">
+			misuse = <"Brukes ikke i andre arketyper enn EVALUATION_Selvrapportert_data_egenerklaering_hv.">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"b787bec7313585bfe4405642f20ca162">
+		["build_uid"] = <"e7bf1922-6d35-3efa-99dd-f827ced27187">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- selvrapportert_yrkesopplysninger_hv
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Er du yrkesaktiv? Svar ja, selv om du er sykemeldt eller permittert.
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002,    -- Ja
+							at0003]    -- Nei
+						}
+					}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Oppgi yrke og arbeidsgiver
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["nb"] = <
+			items = <
+				["at0000"] = <
+					text = <"selvrapportert_yrkesopplysninger_hv">
+					description = <"Selvrapporterte yrkesopplysninger fra et individ som en del av et egenerklæringsskjema.">
+				>
+				["at0001"] = <
+					text = <"Er du yrkesaktiv? Svar ja, selv om du er sykemeldt eller permittert.">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Ja">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Nei">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Oppgi yrke og arbeidsgiver">
+					description = <"">
+				>
+			>
+		>
+	>

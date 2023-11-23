@@ -1,0 +1,207 @@
+archetype (adl_version=1.4; uid=12f53fb3-1eeb-489a-a044-513d7d6cad6f)
+	openEHR-EHR-CLUSTER.selvrapportert_fysisk_kapasitet_og_livsstil_aoi_hv.v1
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::nb]>
+
+description
+	original_author = <
+		["date"] = <"2022-10-06">
+		["name"] = <"Marit Alice Venheim">
+		["organisation"] = <"Helse Vest IKT">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			purpose = <"For å registrere spesifikk selvrapporterte data om fysisk kapasitet og livsstil hos et individ som en del av helseerklæringsskjema før anestsi, operasjon eller inngrep.">
+			use = <"Brukes for å registrere spesifikk selvrapporterte data om fysisk kapasitet og livsstil hos et individ som en del av helseerklæringsskjema før anestsi, operasjon eller inngrep.">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"11bd408c9eeba7394294208cd8a109c1">
+		["build_uid"] = <"ea5e5516-e05e-3797-864c-74dfc9813ccb">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- selvrapportert_fysisk_kapasitet_og_livsstil_aoi_hv
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Klarer du å gå to trapper/etasjer uten å stoppe?
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002,    -- Ja
+							at0003]    -- Nei
+						}
+					}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Vennligst spesifiser. (På grunn av tung pust, brystsmerter, svimmelhet, bevegelseshjelpemidler eller annet)
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {    -- Er du alvorlig synshemmet eller hørselshemmet?
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0006,    -- Ja
+							at0007]    -- Nei
+						}
+					}
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..1} matches {    -- Vennligst spesifiser
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0009] occurrences matches {0..1} matches {    -- Røyker du fast?
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0010,    -- Ja
+							at0011,    -- Nei, har sluttet
+							at0012]    -- Nei
+						}
+					}
+				}
+			}
+			ELEMENT[at0013] occurrences matches {0..1} matches {    -- Hvor mange sigaretter røyker du per dag?
+				value matches {
+					DV_COUNT matches {
+						magnitude matches {|0..100|}
+					}
+				}
+			}
+			ELEMENT[at0019] occurrences matches {0..1} matches {    -- Hvilket år sluttet du å røyke?
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0014] occurrences matches {0..1} matches {    -- Hvilket år sluttet du å røyke?
+				value matches {
+					DV_DATE matches {
+						value matches {yyyy-XX-XX}
+					}
+				}
+			}
+			ELEMENT[at0015] occurrences matches {0..1} matches {    -- Hvor mange alkoholenheter drikker du gjennomsnittlig per uke?
+				value matches {
+					DV_COUNT matches {
+						magnitude matches {|0..100|}
+					}
+				}
+			}
+			ELEMENT[at0016] occurrences matches {0..1} matches {    -- Bruker du vanedannende medikamenter, rusmidler eller andre vanedannende stoffer?
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0017,    -- Ja
+							at0018]    -- Nei
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["nb"] = <
+			items = <
+				["at0000"] = <
+					text = <"selvrapportert_fysisk_kapasitet_og_livsstil_aoi_hv">
+					description = <"Spesifikk selvrapporterte data om fysisk kapasitet og livsstil hos et individ som en del av helseerklæringsskjema før anestsi, operasjon eller inngrep.">
+				>
+				["at0001"] = <
+					text = <"Klarer du å gå to trapper/etasjer uten å stoppe?">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Ja">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Nei">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Vennligst spesifiser. (På grunn av tung pust, brystsmerter, svimmelhet, bevegelseshjelpemidler eller annet)">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Er du alvorlig synshemmet eller hørselshemmet?">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Ja">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Nei">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Vennligst spesifiser">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Røyker du fast?">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Ja">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Nei, har sluttet">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Nei">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"Hvor mange sigaretter røyker du per dag?">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Hvilket år sluttet du å røyke?">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Hvor mange alkoholenheter drikker du gjennomsnittlig per uke?">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"Bruker du vanedannende medikamenter, rusmidler eller andre vanedannende stoffer?">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"Ja">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"Nei">
+					description = <"">
+				>
+				["at0019"] = <
+					text = <"Hvilket år sluttet du å røyke?">
+					description = <"">
+				>
+			>
+		>
+	>

@@ -1,0 +1,60 @@
+archetype (adl_version=1.4; uid=447ec27e-97bd-4c11-9dff-59833c886582)
+	openEHR-EHR-CLUSTER.selvrapportert_eventuelle_kommentarer_hv.v1
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::nb]>
+
+description
+	original_author = <
+		["date"] = <"2022-10-03">
+		["name"] = <"Marit Alice Venheim">
+		["organisation"] = <"Helse Vest IKT">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			purpose = <"For å registrere selvrapportert tilleggsinformasjon som en del av egenerklæringsskjema.">
+			use = <"Brukes for å registrere selvrapportert tilleggsinformasjon som en del av egenerklæringsskjema.">
+			misuse = <"Brukes ikke andre plasser enn i et selvrapportert egenerklæringsskjema, for eksempel Beintetthetsmålig Egenerklæringsskjema eller Helseerklæring før inngrep og operasjon.">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"a9d84be2965b2fc443a04388aae822de">
+		["build_uid"] = <"3c14e774-19f8-349a-a6b6-572774de69cb">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- selvrapportert_eventuelle_kommentarer_hv
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Er det noe mer du vil fortelle oss?
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["nb"] = <
+			items = <
+				["at0000"] = <
+					text = <"selvrapportert_eventuelle_kommentarer_hv">
+					description = <"Selvrapportert tilleggsinformasjon som en del av egenerklæringsskjema.">
+				>
+				["at0001"] = <
+					text = <"Er det noe mer du vil fortelle oss?">
+					description = <"Andre opplysninger individet ønsker å opplyse om i en egenerklæring.">
+				>
+			>
+		>
+	>

@@ -1,0 +1,405 @@
+archetype (adl_version=1.4; uid=e38e2829-301a-45f4-8b3c-0a608ef7f46a)
+	openEHR-EHR-CLUSTER.selvrapportert_gynekologi_obstetrikk_hv.v1
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::nb]>
+
+description
+	original_author = <
+		["date"] = <"2022-09-29">
+		["name"] = <"Marit Alice Venheim">
+		["organisation"] = <"Helse Vest IKT">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			purpose = <"For å registrere spesifikk informasjon om selvrapportert spesifikk informasjon om gynekologisk og obstetrisk historikk hos et individ som en del av egenerklæringsskjema.">
+			use = <"Brukes for å registrere spesifikk informasjon om selvrapportert spesifikk informasjon om gynekologisk og obstetrisk historikk hos et individ som en del av egenerklæringsskjema.">
+			misuse = <"Brukes ikke i andre arketyper enn EVALUATION_Selvrapportert_data_egenerklaering_hv.">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"18a5142a4c675ad0419e97ba73f3b859">
+		["build_uid"] = <"69e828ed-69da-3699-a660-3ea85c65d1a7">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- selvrapportert_gynekologi_obstetrikk_hv
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Har du time på gynekologisk poliklinikk, fødepoliklinikken eller skal du til et inngrep/operasjon på Kvinneklinikken?
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002,    -- Ja
+							at0003]    -- Nei
+						}
+					}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Har du menstruasjon? Svar nei dersom du ikke har menstruasjon på grunn av for eksempel overgangsalder.
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0005,    -- Ja
+							at0006]    -- Nei
+						}
+					}
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {    -- Menarke
+				value matches {
+					DV_DURATION matches {
+						value matches {PY}
+					}
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..1} matches {    -- Når var siste menstruasjon?
+				value matches {
+					DV_DATE matches {
+						value matches {yyyy-mm-dd}
+					}
+				}
+			}
+			ELEMENT[at0009] occurrences matches {0..1} matches {    -- Er menstruasjonen regelmessig
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0010,    -- Ja
+							at0011]    -- Nei
+						}
+					}
+				}
+			}
+			ELEMENT[at0012] occurrences matches {0..1} matches {    -- Menopause
+				value matches {
+					DV_DURATION matches {
+						value matches {PY}
+					}
+				}
+			}
+			ELEMENT[at0030] occurrences matches {0..1} matches {    -- I forbindelse med overgangsalderen, når stoppet menstruasjonen fullstending?  Oppgi omtrent alder og årstall.
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0013] occurrences matches {0..1} matches {    -- Har menstruasjonssyklusen din noen gang blitt avbrutt i 12 måneder eller mer?
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0014,    -- Ja
+							at0015,    -- Nei
+							at0016]    -- Usikker
+						}
+					}
+				}
+			}
+			ELEMENT[at0017] occurrences matches {0..1} matches {    -- Menstruasjon og overgangsalder er ikke aktuelt
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0018] occurrences matches {0..1} matches {    -- Har du hatt noen aborter?
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0019,    -- Ja
+							at0020]    -- Nei
+						}
+					}
+				}
+			}
+			ELEMENT[at0021] occurrences matches {0..1} matches {    -- Antall aborter
+				value matches {
+					DV_COUNT matches {
+						magnitude matches {|<=100|}
+					}
+				}
+			}
+			ELEMENT[at0022] occurrences matches {0..1} matches {    -- Årstall for siste abort
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0023] occurrences matches {0..1} matches {    -- Har du født barn?
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0024,    -- Ja
+							at0025]    -- Nei
+						}
+					}
+				}
+			}
+			ELEMENT[at0026] occurrences matches {0..1} matches {    -- Antall vaginale fødsler
+				value matches {
+					DV_COUNT matches {
+						magnitude matches {|<100|}
+					}
+				}
+			}
+			ELEMENT[at0027] occurrences matches {0..1} matches {    -- Oppgi årstall for fødslene. Du kan oppgi ett eller flere årstall
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0028] occurrences matches {0..1} matches {    -- Antall keisersnitt
+				value matches {
+					DV_COUNT matches {
+						magnitude matches {|<100|}
+					}
+				}
+			}
+			ELEMENT[at0029] occurrences matches {0..1} matches {    -- Oppgi årstall for keisersnitt. Du kan oppgi ett eller flere årstall
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0033] occurrences matches {0..1} matches {    -- Er du gravid eller ammer?
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0034,    -- Ja
+							at0035]    -- Nei
+						}
+					}
+				}
+			}
+			ELEMENT[at0036] occurrences matches {0..1} matches {    -- Usikker på om jeg er gravid
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0037] occurrences matches {0..1} matches {    -- Gravid
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0038,    -- Ja
+							at0039]    -- Nei
+						}
+					}
+				}
+			}
+			ELEMENT[at0040] occurrences matches {0..1} matches {    -- Vennligst oppgi hvor langt du er kommet i graviditeten i antall uker.  (Oppgi den uken du er i. For eksempel Uke 24+3 =24 uker.)
+				value matches {
+					DV_COUNT matches {
+						magnitude matches {|0..100|}
+					}
+				}
+			}
+			ELEMENT[at0041] occurrences matches {0..1} matches {    -- Informasjon
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0042] occurrences matches {0..1} matches {    -- Ammer
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0043,    -- Ja
+							at0044]    -- Nei
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["nb"] = <
+			items = <
+				["at0000"] = <
+					text = <"selvrapportert_gynekologi_obstetrikk_hv">
+					description = <"Selvrapportert spesifikk informasjon om gynekologisk og obstetrisk historikk hos et individ som en del av egenerklæringsskjema.">
+				>
+				["at0001"] = <
+					text = <"Har du time på gynekologisk poliklinikk, fødepoliklinikken eller skal du til et inngrep/operasjon på Kvinneklinikken?">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Ja">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Nei">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Har du menstruasjon? Svar nei dersom du ikke har menstruasjon på grunn av for eksempel overgangsalder.">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Ja">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Nei">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Menarke">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Når var siste menstruasjon?">
+					description = <"Siste menstruasjons første dag.">
+				>
+				["at0009"] = <
+					text = <"Er menstruasjonen regelmessig">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Ja">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Nei">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Menopause">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"Har menstruasjonssyklusen din noen gang blitt avbrutt i 12 måneder eller mer?">
+					description = <"Sett bort fra graviditet, overgangsalder, fjerning av livmor eller bruk av hormonell prevensjon.">
+				>
+				["at0014"] = <
+					text = <"Ja">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Nei">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"Usikker">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"Menstruasjon og overgangsalder er ikke aktuelt">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"Har du hatt noen aborter?">
+					description = <"">
+				>
+				["at0019"] = <
+					text = <"Ja">
+					description = <"">
+				>
+				["at0020"] = <
+					text = <"Nei">
+					description = <"">
+				>
+				["at0021"] = <
+					text = <"Antall aborter">
+					description = <"">
+				>
+				["at0022"] = <
+					text = <"Årstall for siste abort">
+					description = <"">
+				>
+				["at0023"] = <
+					text = <"Har du født barn?">
+					description = <"">
+				>
+				["at0024"] = <
+					text = <"Ja">
+					description = <"">
+				>
+				["at0025"] = <
+					text = <"Nei">
+					description = <"">
+				>
+				["at0026"] = <
+					text = <"Antall vaginale fødsler">
+					description = <"">
+				>
+				["at0027"] = <
+					text = <"Oppgi årstall for fødslene. Du kan oppgi ett eller flere årstall">
+					description = <"">
+				>
+				["at0028"] = <
+					text = <"Antall keisersnitt">
+					description = <"">
+				>
+				["at0029"] = <
+					text = <"Oppgi årstall for keisersnitt. Du kan oppgi ett eller flere årstall">
+					description = <"">
+				>
+				["at0030"] = <
+					text = <"I forbindelse med overgangsalderen, når stoppet menstruasjonen fullstending?  Oppgi omtrent alder og årstall.">
+					description = <"">
+				>
+				["at0033"] = <
+					text = <"Er du gravid eller ammer?">
+					description = <"">
+				>
+				["at0034"] = <
+					text = <"Ja">
+					description = <"">
+				>
+				["at0035"] = <
+					text = <"Nei">
+					description = <"">
+				>
+				["at0036"] = <
+					text = <"Usikker på om jeg er gravid">
+					description = <"">
+				>
+				["at0037"] = <
+					text = <"Gravid">
+					description = <"">
+				>
+				["at0038"] = <
+					text = <"Ja">
+					description = <"">
+				>
+				["at0039"] = <
+					text = <"Nei">
+					description = <"">
+				>
+				["at0040"] = <
+					text = <"Vennligst oppgi hvor langt du er kommet i graviditeten i antall uker.  (Oppgi den uken du er i. For eksempel Uke 24+3 =24 uker.)">
+					description = <"">
+				>
+				["at0041"] = <
+					text = <"Informasjon">
+					description = <"">
+					comment = <"Info tekst:
+Husk å ta med Helsekort for gravide dersom du har dette.">
+				>
+				["at0042"] = <
+					text = <"Ammer">
+					description = <"">
+				>
+				["at0043"] = <
+					text = <"Ja">
+					description = <"">
+				>
+				["at0044"] = <
+					text = <"Nei">
+					description = <"">
+				>
+			>
+		>
+	>
